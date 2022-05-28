@@ -7,6 +7,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
 .purple {
   color: #7342d6;
 }
@@ -17,8 +22,12 @@ img {
   max-height: 50vh;
 }
 
+p {
+  line-height: 1.5;
+}
+
 #landing {
-  background-color: rgba(115, 66, 214, 0.1);
+  background-color: rgba(115, 66, 214, 0.1);;
 }
 
 nav {
@@ -115,6 +124,35 @@ button:active {
 
 .header__img--wrapper {
   padding: 20px;
+  z-index: 2
+}
+
+/* Higlights */
+
+#highlights {
+  position: relative;
+}
+
+#highlights::before, #highlights::after {
+  background: url('./assets/wave.svg');
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 12vw;
+  left: 0;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+#highlights::before {
+  top: 1px;
+  transform: translateY(-100%);
+}
+
+#highlights::after {
+  bottom: 1px;
+  transform: translateY(100%) rotate(180deg);
 }
 
 .container {
@@ -125,4 +163,100 @@ button:active {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.section__title {
+  font-size: 28px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.highlight__wrapper {
+  display: flex;
+}
+
+.highlight {
+  padding: 0 24px;
+  width: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.highlight__para {
+  text-align: center;
+  max-width: 280px;
+}
+
+.highlight__img {
+  color: #7342d6;
+  border: 2px solid #7342d65d;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.highlight__subtitle {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+/* features */
+
+#features {
+  background-color: rgba(115, 66, 214, 0.1);;
+  padding-top: 8vw;
+}
+
+.books {
+  display: flex;
+}
+
+.book {
+  width: 25%;
+  padding: 24px;
+}
+
+.book__img {
+  transition: all 300ms ease;
+  cursor: no-drop;
+}
+
+.book__img--wrapper {
+  margin-bottom: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+}
+
+
+.book:hover .book__img {
+  transform: scale(1.03);
+}
+
+.book__title {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.book__title:hover {
+  text-decoration: underline;
+  cursor: no-drop;
+}
+
+.book__ratings {
+  margin-bottom: 8px;
+  color: #fabf2a
+}
+
+.book__price--normal {
+  text-decoration: line-through;
+  padding-right: 6px;
+  color: #bfbfbf;
 }
