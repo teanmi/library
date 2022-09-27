@@ -1,7 +1,7 @@
-const openMenu = () => {
-  document.body.classList += " menu--open";
-};
+function openMenu() {
+  document.body.classList += " menu--open"
+}
 
-const closeMenu = () => {
-  document.body.classList.remove("menu--open");
-};
+function closeMenu() {
+  document.body.classList.remove('menu--open')
+}
