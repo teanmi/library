@@ -1,31 +1,31 @@
-let books
+let books;
 
 const renderBooks = async (filter) => {
   const booksWrapper = document.querySelector(".books");
 
-  booksWrapper.classList += " .books_loading"
+  booksWrapper.classList += " .books_loading";
 
   if (!books) {
     books = await getBooks();
-  } 
+  }
 
-  booksWrapper.classList.remove("books__loading")
+  booksWrapper.classList.remove("books__loading");
 
   if (filter === "LOW_TO_HIGH") {
     books.sort((a, b) => {
       let aPrice = 0;
-      let bPrice = 0; 
+      let bPrice = 0;
 
       if (a.salePrice === null) {
-        aPrice = a.originalPrice
+        aPrice = a.originalPrice;
       } else {
-        aPrice = a.salePrice
+        aPrice = a.salePrice;
       }
 
       if (b.salePrice === null) {
-        bPrice = b.originalPrice
+        bPrice = b.originalPrice;
       } else {
-        bPrice = b.salePrice
+        bPrice = b.salePrice;
       }
 
       return aPrice - bPrice;
@@ -33,18 +33,18 @@ const renderBooks = async (filter) => {
   } else if (filter === "HIGH_TO_LOW") {
     books.sort((a, b) => {
       let aPrice = 0;
-      let bPrice = 0; 
+      let bPrice = 0;
 
       if (a.salePrice === null) {
-        aPrice = a.originalPrice
+        aPrice = a.originalPrice;
       } else {
-        aPrice = a.salePrice
+        aPrice = a.salePrice;
       }
 
       if (b.salePrice === null) {
-        bPrice = b.originalPrice
+        bPrice = b.originalPrice;
       } else {
-        bPrice = b.salePrice
+        bPrice = b.salePrice;
       }
 
       return bPrice - aPrice;
@@ -96,15 +96,13 @@ const getStars = (rating) => {
 
 const getPrice = (salePrice, originalPrice) => {
   if (!salePrice) {
-    return `<span class="">$${originalPrice}</span>` 
-  } 
+    return `<span class="">$${originalPrice}</span>`;
+  }
   return `<span class="book__price--normal">$${originalPrice}</span>
-    <span>$${salePrice}</span>`
-}
+    <span>$${salePrice}</span>`;
+};
 
-setTimeout(() => {
-  renderBooks();
-});
+renderBooks();
 
 const filterBooks = (event) => {
   renderBooks(event.target.value);
@@ -211,7 +209,7 @@ function getBooks() {
           salePrice: null,
           rating: 4.5,
         },
-      ])
-    }, 1000)
-  })
+      ]);
+    }, 1000);
+  });
 }
